@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<style>
+	input[type=text],
+	select {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[type=submit] {
+		width: 100%;
+		background-color: #4caf50;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	input[type=submit]:hover {
+		background-color: #45a049;
+	}
+
+	div {
+		border-radius: 5px;
+		background-color: #f2f2f2;
+		padding: 20px;
+	}
+</style>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+	<title>Spotify Billboard Prediction</title>
+</head>
+
+<body class="bg-dark">
+
+	<div class="container">
+		<div class="row">
+			<div class="card mt-50" style="width: 100%; height: 100%">
+				<div class="card-header">
+					<div class="col-12" style="text-align: center">
+						<h1>Welcome to Spotify Billboard Prediction</h1>
+						<h7>A MACHINE LEARNING WEB APP, BUILT WITH FLASK</h7>
+					</div>
+				</div>
+				<div class="card-body">
+
+					<form method="post" action="{{url_for('home')}}" accept-charset="utf-8">
+						<br>
+						<label for="artist" colo>Name of Artist: </label>
+						<input type="text" name="z" placeholder="song's artist" required="required">
+						<br>
+						<br>
+						<label for="title" colo>Name of Song: </label>
+						<input type="text" name="y" placeholder="song's name" required="required">
+						<br>
+						<br>
+						<label for="danceability" colo>Danceability: </label>
+						<input type="text" name="a" placeholder="danceability" required="required">
+						<br>
+						<br>
+						<label for="energy" colo>Energy: </label>
+						<input type="text" name="b" placeholder="energy" required="required">
+						<br>
+						<br>
+						<label for="loudness">Loudness: </label>
+						<input type="text" name="c" placeholder="loudness" required="required">
+						<br>
+						<br>
+						<label for="speechiness">Speechiness: </label>
+						<input type="text" name="d" placeholder="speechiness" required="required">
+						<br>
+						<br>
+						<label for="accousticness">Accousticness: </label>
+						<input type="text" name="e" placeholder="accousticness" required="required">
+						<br>
+						<br>
+						<label for="liveness">Liveness: </label>
+						<input type="text" name="g" placeholder="liveness" required="required">
+						<br>
+						<br>
+						<label for="valence">Valence: </label>
+						<input type="text" name="h" placeholder="valence" required="required">
+						<br>
+						<br>
+						<label for="tempo">Tempo: </label>
+						<input type="text" name="i" placeholder="tempo" required="required">
+						<br>
+						<label for="genre">Genre: </label>
+						<select id="Genre" name="j" , placeholder="genre" , required="required">
+							<option value="0">alternative</option>
+							<option value="1">classical</option>
+							<option value="2">country</option>
+							<option value="3">edm</option>
+							<option value="4">jazz</option>
+							<option value="5">metal</option>
+							<option value="6">pop</option>
+							<option value="7">rap</option>
+							<option value="8">reggae</option>
+							<option value="9">rock</option>
+						</select>
+						<br>
+						<br>
+
+						<input type="submit" , value='predict!'>
+					</form>
+					<br>
+					<br>
+				</div>
+</body>
+
+</html>
