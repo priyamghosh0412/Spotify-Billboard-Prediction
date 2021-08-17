@@ -129,27 +129,19 @@ Here's a list of all the models I tested:
 The Decision tree-Adaboost with hyper parameter tuning model gave the highest accuracy score and AUC score.
 
 #### Deployment:
-Due to a large number of features (Spotify features + lyrics bag-of-words), I decided to use a penalized logistic regression model. This imposes a penalty to the logistic model for having too many variables. This results in lowering the dimensionality of the feature spacing by shrinking the coefficients of the less important features toward zeros. I specifically used the following penalized regression techniques:
+With the help of [Flask](https://flask.palletsprojects.com/en/2.0.x/) framework, I have created a webpage (link given on the top) which takes audio features as input and predict whether the song wiil hit Billboard or not? Also used HTML and CSS to design the webpage. Below are some screenshots od webpage:
 
-- **Ridge Regression**: all the features are included in the model, but variables with minor contribution have their coefficients close to zero
-- **Lasso Regression**: the coefficients of less contributive features are forced to zero and only the most significant features are kept
+![](images/deploy2.png)
 
-(An explanation regarding penalty methods and shrinkage can be found [here](https://stats.stackexchange.com/questions/179864/why-does-shrinkage-work))
+![](images/deploy3.png)
 
-**Ridge: MSE vs. log(Λ)**
-![](/images/ridge.png)
+you have to press the Predict button after everything is done.
 
-**Lasso: MSE vs. log(Λ)**
-![](/images/lasso.png)
+![](images/deploy1.png)
 
-**Model Summary:**
+And the Prediction page will look like this.
 
-| Model   | Accuracy   | TPR   |
-| -----   | :--------: | :---: |
-| **Ridge** | 0.805 | 0.182 |
-| **Lasso** | 0.807 | 0.185 |
 
-Based on the model summary, the penalty methods were not that effective.
 
 ## Conclusion
 The best model after testing seems to (improved) logistic regression and bagging. Both these models yielded high accuracy (~81%) and they had an above average TPR (~0.3) and AUC (~0.785). Also, the stacked model did a good job of minimizing FPR and helped increase the AUC (~0.80).
