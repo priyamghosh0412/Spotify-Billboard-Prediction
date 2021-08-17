@@ -60,8 +60,11 @@ The distribution of release year is negatively skewed
 ![](images/fig3.png)
 
 CONCLUSIONS FROM THE PLOTS :
+
 1.For a song to hit list of billboard 100 top songs, its danceability must be above than 0.6.
+
 2.Songs with low loudness level, have more chances to hit billboard top 100 list.
+
 3.Songs with acousticness level between 0.05 to 0.2 ,generally hits the billboard top 100 list.
 
 **Correlation between each feature**
