@@ -129,7 +129,7 @@ Here's a list of all the models I tested:
 The Decision tree-Adaboost with hyper parameter tuning model gave the highest accuracy score and AUC score.
 
 #### Deployment:
-With the help of [Flask](https://flask.palletsprojects.com/en/2.0.x/) framework, I have created a webpage (link given on the top) which takes audio features as input and predict whether the song wiil hit Billboard or not? Also used HTML and CSS to design the webpage. Below are some screenshots od webpage:
+With the help of [Flask](https://flask.palletsprojects.com/en/2.0.x/) framework, I have created a web app (link given on the top) which takes audio features as input and predict whether the song wiil hit Billboard or not? Also used HTML and CSS to design the web app. Below are some screenshots:
 
 ![](images/deploy2.png)
 
@@ -141,23 +141,16 @@ you have to press the Predict button after everything is done.
 
 And the Prediction page will look like this.
 
-
+I have used [Heroku](https://www.heroku.com/about) to deploy this web app in the web. You can also check the offical website of [Heroku](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwioqOCf7rfyAhXPqksFHQ2uAkoQFnoECBUQAw&url=https%3A%2F%2Fwww.heroku.com%2F&usg=AOvVaw1V4lhSv6mb_lZj6UUCUXpS).
+Using Github, you can deploy any web app to [Heroku](https://youtu.be/mrExsjcvF4o) in a very easy way.
 
 ## Conclusion
-The best model after testing seems to (improved) logistic regression and bagging. Both these models yielded high accuracy (~81%) and they had an above average TPR (~0.3) and AUC (~0.785). Also, the stacked model did a good job of minimizing FPR and helped increase the AUC (~0.80).
+The best model after testing seems to Decision Tree and Adaboost. Both these models yielded high accuracy (~83%) and AUC (~0.90). Also, the stacked model did a good job of minimizing FPR and helped increase the AUC.
 
 ## Future Work
-- Append more music awards (Grammy, Apple Music Awards, iHeartRadio Music Awards, etc.) to balance dataset of "hit" songs
-- Reduce time window (2-3 years) or prepare a time-series model
-- Build deep learning model
+The audio features it has, a common person will not able to find out. So to solve this I will add spotify API to it. In this, you have to select the name of the Singer, name of the album and name of the song and it will pass through the Spotify API and it will extract the audio features from the song.
 
 ## Sources
-1. https://www.kaggle.com/edalrami/19000-spotify-songs
-2. https://developer.spotify.com/discover/
-3. https://developer.musixmatch.com
-4. https://en.wikipedia.org/wiki/Hit_Song_Science
-5. https://www.kdnuggets.com/2017/02/stacking-models-imropved-predictions.html
-6. https://stats.stackexchange.com/questions/179864/why-does-shrinkage-work
-7. https://statweb.stanford.edu/~jtaylo/courses/stats203/notes/penalized.pdf
-8. https://towardsdatascience.com/decision-tree-ensembles-bagging-and-boosting-266a8ba60fd9
-9. https://towardsdatascience.com/ensemble-methods-in-machine-learning-what-are-they-and-why-use-them-68ec3f9fef5f
+1. https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019
+2. http://millionsongdataset.com/pages/getting-dataset/
+3. https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwioqOCf7rfyAhXPqksFHQ2uAkoQFnoECBUQAw&url=https%3A%2F%2Fwww.heroku.com%2F&usg=AOvVaw1V4lhSv6mb_lZj6UUCUXpS
