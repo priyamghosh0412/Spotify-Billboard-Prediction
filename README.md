@@ -24,7 +24,9 @@ The dataset consists of these audio features which was used to predict the hit o
 After cleaning the data, a dataset of approx. 8653 songs was created.
 
 ![](images/data-distribution.png)
+
 In the above graph, you can see that maximum songs fail to get into Top100 list. Only 16.4% songs appear in Top100 list.
+
 ![](images/fig4.png)
 ![](images/fig5.png)
 ![](images/fig6.png)
