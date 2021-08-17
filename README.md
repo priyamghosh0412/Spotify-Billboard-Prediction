@@ -21,29 +21,54 @@ The dataset consists of these audio features which was used to predict the hit o
 - **Context**: Liveness, Acousticness
 
 
-After cleaning the data, a dataset of approx. 10000 songs was created.
+After cleaning the data, a dataset of approx. 8653 songs was created.
 
 ![](images/data-distribution.png)
-![](images/fig-vs-decade.png)
+In the above graph, you can see that maximum songs fail to get into Top100 list. Only 16.4% songs appear in Top100 list.
+![](images/fig4.png)
+![](images/fig5.png)
+![](images/fig6.png)
+![](images/freq-vs-decade.png)
+From the graph, it is observed maximum songs are released between 2010-2020.
 ![](images/genre-dist.png)
+![](images/genre-dist1.png)
+Most of the songs released are of 'Pop', 'Rap' and 'Rock' genre. Half of the songs released are of Genre 'Pop'.
 
 ## Exploratory Data Analysis
 
-**Spotify Features over Time**
-![](images/acoustic-vs-time.png)
-![](images/dance-vs-time.png)
-![](images/energy-vs-time.png)
-![](images/live-vs-time.png)
-![](images/loud-vs-time.png)
-![](images/speech-vs-time.png)
+**Distribution of Genre
+![](images/distgen.png)
+The distribution of release year is negatively skewed
 
-The above graphs clearly show that audio features evolve over time. More importantly, the separability of data in certain graphs such as *Acousticness vs. Time* and *Loudness vs. Time* indicates potentially significant features that can help distinguish between the two classes.
+**Spotify Features over Time for each decade** 
+![](images/fig1.png)
+![](images/fig2.png)
+![](images/fig3.png)
+CONCLUSIONS FROM THE PLOTS :
+1.For a song to hit list of billboard 100 top songs, its danceability must be above than 0.6.
+2.Songs with low loudness level, have more chances to hit billboard top 100 list.
+3.Songs with acousticness level between 0.05 to 0.2 ,generally hits the billboard top 100 list.
+
+**Correlation between each feature**
+![](images/corr.png)
+There is good positive correlation between Loudness and Energy. While Acoustiness and Energy are negatively correlated. Also there is negative correlation between Loudness and Acoustiness.
 
 **Feature Comparisons**
-![](images/acoustic-vs-dance.png)
-![](images/acoustic-vs-loud.png)
+![](images/comp1.png)
+![](images/comp2.png)
+Scatter plot shows that loud songs with High Energy makes up on the billboard Top100.
+![](images/comp3.png)
+Rap songs preffered for dancing. While Metal types are least preffered.
 
-The above graphs show the separability in the data when compared across two unique Spotify features; this suggests that data may separate across an n-dimensional feature space. Given this, the problem can alternatively be posed as an unsupervised learning problem where clustering methods can classify the data.
+**Feature distributions**
+![](images/distoffeat.png)
+It is showing the distribution of each feature
+
+**Audio Features vs Top100(Density)**
+![](images/feattar.png)
+It seems that Valance, Tempo, key are not much significant features to predict if the song will be on Billboard or not. While Instrumentalness, Loudness and Energy seems to be significant.
+
+
 
 ## Models and Results
 Given the unbalanced nature of the dataset, any model chosen would automatically yield high accuracy. So, in addition to aiming for high accuracy, another objective of modeling is to ensure a high AUC (so that TPR is maximized and FPR is minimized). The AUC tells us how well the model is capable of distinguishing between the two classes.
