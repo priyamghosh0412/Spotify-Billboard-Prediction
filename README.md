@@ -1,4 +1,4 @@
-# Project Link:  [Billboard-Hits-Prediction](https://billboard-hits-prediction.herokuapp.com)
+# Project Link:  [Billboard-Hot-100-Hits-Prediction](https://billboard-hits-prediction.herokuapp.com)
 
 # Billboard Hot 100 Hit Prediction
 :notes: Predicting Billboard's Year-End Hot 100 Songs using audio features from Spotify data.
@@ -99,57 +99,36 @@ It seems that Valance, Tempo, key are not much significant features to predict i
 
 
 
-## Models and Results
-Given the unbalanced nature of the dataset, any model chosen would automatically yield high accuracy. So, in addition to aiming for high accuracy, another objective of modeling is to ensure a high AUC (so that TPR is maximized and FPR is minimized). The AUC tells us how well the model is capable of distinguishing between the two classes.
-
-Also, after EDA, I decided to only consider songs released between 2000-2018 because it is evident that music trends and acoustic features change over time, and song characteristics of the '90s would probably be not reflective of '00s and '10s decades. *(Note: For the sake of sample size I decided to combine '00s and '10s decades together. However, with the conglomeration of more songs and awards, it is probably better to consider a smaller time window)*
+## Models
+Given the unbalanced nature of the dataset, used SMOTE to balance it. Used Standardization technique to scale it down into one scale. So, in addition to aiming for high accuracy, another objective of modeling is to ensure a high AUC (so that TPR is maximized and FPR is minimized). The AUC tells us how well the model is capable of distinguishing between the two classes.
 
 Here's a list of all the models I tested:
-  1. Logistic Regression
-  2. Improved Logistic Regression (with un-important Spotify features removed)
-  3. LDA
-  4. 10-fold CV CART
-  5. Random Forest
-  6. Bagging
-  7. 10-fold CV KNN
+  1. Decision Tree 
+  2. Improved Decision Tree (with hyperparameter tuning)
+  4. Improved LDA (with hyperparameter tuning)
+  5. Decision Tree with Adaboost (with hyperparameter tuning)
   
 **Model Summaries:**
 
-| Model   | Accuracy   | TPR   | AUC   |
-| -----   | :--------: | :---: | :---: |
-| Baseline | 0.798 | na | na |
-| Logistic Regression | 0.809 | 0.289 | 0.786 |
-| **Improved Logistic Regression** | **0.810** | **0.300** | **0.785** |
-| LDA | 0.805 | 0.280 | 0.774 |
-| 10-fold CV CART | 0.805 | 0.123 | 0.706 |
-| Random Forest | 0.813 | 0.174 | 0.7731 |
-| **Bagging** | **0.818** | **0.300** | **0.785** |
-| 10-fold CV KNN | 0.801 | 0.014 | 0.736 |
+| Model   | Accuracy   | AUC   |
+| -----   | :--------: | :---: |
+| Decision Tree | 0.74 | 0.77 |
+| Improved Decision Tree | 0.75 | 0.79 |
+| Improved LDA | 0.65 | 0.70 |
+| Decision Tree with Adaboost | 0.83 | 0.90 |
 
-### Additional Modeling
 
-#### Stacking:
-Additionally, I tested out an ensemble method by stacking a few models together (logistic + LDA + CART). Model ensembling is a technique in which different models are combined to improve predictive power and improve accuracy. Details regarding stacking and ensemble methods can be found [here](https://www.kdnuggets.com/2017/02/stacking-models-imropved-predictions.html).
 
-**Model Correlation Matrix:**
-
-|     | lda | rpart | glm |
-| --- | --- | :-----: | :---: |
-| **lda** | 1.0000000 | 0.1656148 | 0.9283705 |
-| **rpart** | 0.1656148 | 1.0000000 | 0.2025172 |
-| **glm** | 0.9283705 | 0.2025172 | 1.0000000 |
-
-![](/images/stack-scatter.png)
 
 **Model Summary:**
 
-| Accuracy   | TPR   | AUC   |
-| :--------: | :---: | :---: |
-| 0.814 | 0.297 | 0.797 |
+| Accuracy   | AUC   |
+| :--------: | :---: |
+| 0.83 | 0.90 |
 
-The stacked model achieved high accuracy and TPR that is comparable to the improved logistic regression and bagging model. However, more importantly, the stacked model greatly improved the AUC.
+The Decision tree-Adaboost with hyper parameter tuning model gave the highest accuracy score and AUC score.
 
-#### Penalized Regression:
+#### Deployment:
 Due to a large number of features (Spotify features + lyrics bag-of-words), I decided to use a penalized logistic regression model. This imposes a penalty to the logistic model for having too many variables. This results in lowering the dimensionality of the feature spacing by shrinking the coefficients of the less important features toward zeros. I specifically used the following penalized regression techniques:
 
 - **Ridge Regression**: all the features are included in the model, but variables with minor contribution have their coefficients close to zero
