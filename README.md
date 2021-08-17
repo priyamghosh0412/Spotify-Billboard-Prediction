@@ -28,46 +28,70 @@ After cleaning the data, a dataset of approx. 8653 songs was created.
 In the above graph, you can see that maximum songs fail to get into Top100 list. Only 16.4% songs appear in Top100 list.
 
 ![](images/fig4.png)
+
 ![](images/fig5.png)
+
 ![](images/fig6.png)
+
 ![](images/freq-vs-decade.png)
+
 From the graph, it is observed maximum songs are released between 2010-2020.
+
 ![](images/genre-dist.png)
+
 ![](images/genre-dist1.png)
+
 Most of the songs released are of 'Pop', 'Rap' and 'Rock' genre. Half of the songs released are of Genre 'Pop'.
 
 ## Exploratory Data Analysis
 
 **Distribution of Genre
+
 ![](images/distgen.png)
+
 The distribution of release year is negatively skewed
 
-**Spotify Features over Time for each decade** 
+**Spotify Features over Time for each decade**
+
 ![](images/fig1.png)
+
 ![](images/fig2.png)
+
 ![](images/fig3.png)
+
 CONCLUSIONS FROM THE PLOTS :
 1.For a song to hit list of billboard 100 top songs, its danceability must be above than 0.6.
 2.Songs with low loudness level, have more chances to hit billboard top 100 list.
 3.Songs with acousticness level between 0.05 to 0.2 ,generally hits the billboard top 100 list.
 
 **Correlation between each feature**
+
 ![](images/corr.png)
+
 There is good positive correlation between Loudness and Energy. While Acoustiness and Energy are negatively correlated. Also there is negative correlation between Loudness and Acoustiness.
 
 **Feature Comparisons**
+
 ![](images/comp1.png)
+
 ![](images/comp2.png)
+
 Scatter plot shows that loud songs with High Energy makes up on the billboard Top100.
+
 ![](images/comp3.png)
+
 Rap songs preffered for dancing. While Metal types are least preffered.
 
 **Feature distributions**
+
 ![](images/distoffeat.png)
+
 It is showing the distribution of each feature
 
 **Audio Features vs Top100(Density)**
+
 ![](images/feattar.png)
+
 It seems that Valance, Tempo, key are not much significant features to predict if the song will be on Billboard or not. While Instrumentalness, Loudness and Energy seems to be significant.
 
 
