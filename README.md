@@ -12,6 +12,17 @@ Hit Song Science can help music producers and artists know their audience better
 
 Also, it can highlight unknown artists whose music is characteristic of top songs on the Billboard Hot 100. This allows underground artists (i.e. Lil Tecca), who might not have the publicity help from an agency or a record label, to have a chance at gaining recognition. 
 
+## Requirements
+
+colorama==0.4.4
+Flask==2.0.1
+gunicorn==20.1.0
+Jinja2==3.0.1
+joblib==1.0.1
+MarkupSafe==2.0.1
+numpy==1.21.1
+scikit-learn==0.24.2
+scipy==1.7.1
 
 ## Data and Features
 A sample of songs was downloaded from [Kaggle](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019/download) and [The million songs](http://millionsongdataset.com/pages/getting-dataset/) which included songs from various albums. Concatenated these two datasets into a bigger one which consists of 9227 songs.
