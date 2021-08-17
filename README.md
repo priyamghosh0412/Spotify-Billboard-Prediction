@@ -1,8 +1,10 @@
+# Project Link:  [Billboard-Hits-Prediction](https://billboard-hits-prediction.herokuapp.com)
+
 # Billboard Hot 100 Hit Prediction
 :notes: Predicting Billboard's Year-End Hot 100 Songs using audio features from Spotify data.
 
 ## Overview
-Each year, Billboard publishes its Year-End Hot 100 songs list, which denotes the top 100 songs of that year. The objective of this project was to see whether or not a machine learning classifier could predict whether a song would become a hit *(known as [Hit Song Science](https://en.wikipedia.org/wiki/Hit_Song_Science))* given its intrinsic audio features as well as lyrics.
+Each year, Billboard publishes its Year-End Hot 100 songs list, which denotes the top 100 songs of that year. The objective of this project was to see whether or not a machine learning classifier could predict whether a song would become a hit given its intrinsic audio features as well as lyrics.
 
 The goal of this project is to see if a song's audio characteristics and lyrics can determine a song's popularity. Data and analytics aside, music listeners around the world probably have seen music trends change over time. Although each listener has custom interests in music, it is pretty clear when we listen to a hit song or soon to be hit song (consider Old Town Road). And over time, we see the characteristics of hit songs change. So, rather than using our intuition or "gut-feeling" to predict hit songs, the purpose of the project is to see if we can use intrinsic music data to identify hits.
 
@@ -12,14 +14,12 @@ Also, it can highlight unknown artists whose music is characteristic of top song
 
 
 ## Data and Features
-A sample of 19000 Spotify songs was downloaded from [Kaggle](https://www.kaggle.com/edalrami/19000-spotify-songs), which included songs from various Spotify albums. Additionally, Billboard charts from 1964-2018 were scraped from Billboard and Wikipedia.
-
-Using Spotify's Audio Features & Analysis API, the following [features](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/) were collected for each song: 
-- **Mood**: Danceability, Valence, Energy, Tempo
+A sample of songs was downloaded from [Kaggle](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019/download) and [The million songs](http://millionsongdataset.com/pages/getting-dataset/) which included songs from various albums. Concatenated these two datasets into a bigger one which consists of 9227 songs.
+The dataset consists of these audio features which was used to predict the hit of a song.
+ - **Mood**: Danceability, Valence, Energy, Tempo
 - **Properties**: Loudness, Speechiness, Instrumentalness
 - **Context**: Liveness, Acousticness
 
-Additonally, lyrics were collected for each song using the [Musixmatch API](https://developer.musixmatch.com/documentation/api-reference/track-lyrics-get). I took a bag-of-words NLP approach to build a highly sparse (86%) matrix of unique words.
 
 After cleaning the data, a dataset of approx. 10000 songs was created.
 
