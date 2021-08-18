@@ -17,18 +17,76 @@ Also, it can highlight unknown artists whose music is characteristic of top song
 ![](images/req.png)
 
 ## Data and Features
-A sample of songs was downloaded from [Kaggle](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019/download) and [The million songs](http://millionsongdataset.com/pages/getting-dataset/) which included songs from various albums. Concatenated these two datasets into a bigger one which consists of 9227 songs.
-The dataset consists of these audio features which was used to predict the hit of a song.
- - **Mood**: Danceability, Valence, Energy, Tempo
-- **Properties**: Loudness, Speechiness, Instrumentalness
-- **Context**: Liveness, Acousticness
+A sample of songs was downloaded from [Kaggle](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019/download) and [The million songs](http://millionsongdataset.com/pages/getting-dataset/) which included songs from various albums. Made a new common column in both the datasets i.e. Top100 (Target Variable).
+The songs which are on Billboard dataset, marked as 1 and those are on million songs dataset, marked as 0. Concatenated these two datasets into a bigger one which consists of 9227 songs.
+The dataset consists of these features:
+--> Artist                
+--> Title                 
+--> Top100                
+--> URI                   
+--> Danceability          
+--> Energy                
+--> Key                   
+--> Loudness              
+--> Mode                  
+--> Speechiness           
+--> Acousticness          
+--> Instrumentalness      
+--> Liveness              
+--> Valence               
+--> Tempo                 
+--> Duration              
+--> Time_Signature        
+--> lyrics              
+--> explicit              
+--> Release_Year          
+--> Genre                 
 
+## Data Cleaning
+Checked null values of dataset. The null values found only in 'lyrics' column as shown in the figure below.
+
+![](images/unique.png)
+
+Dropped lyrics column as it is not needed and contains null values and also looks like uri column contains song id we dont need it.
+
+The dataset also contains same song with different artist. So I dropped duplicate rows also. Also checked unique values for each feature
+
+![](images/duplicate.png)
 
 After cleaning the data, a dataset of approx. 8653 songs was created.
+
+## EXPLORATORY DATA ANALYSIS
+## Data Visualization and Transformation
+
+**Distribution of Genre
+
+![](images/distgen.png)
+
+The distribution of release year is negatively skewed
+
+**Removing outliers
+
+![](images/outliers.png)
+
+The data points which are outside the inter-quartile range called outliers.
+
+**Transforming Genre Column 
+
+![](images/transform.png)
+
+As you can see the 'genre' column contains categorical values, so I had to encode it as machine only understands the numerical values. And map it to a dictionary with value before encoding.
+
+**Distribution of Column Top100
 
 ![](images/data-distribution.png)
 
 In the above graph, you can see that maximum songs fail to get into Top100 list. Only 16.4% songs appear in Top100 list.
+
+**Distribution of Songs Release-Year Wise
+
+![](images/freq-vs-decade.png)
+
+From the graph, it is observed maximum songs are released between 2010-2020.
 
 ![](images/fig4.png)
 
@@ -36,9 +94,7 @@ In the above graph, you can see that maximum songs fail to get into Top100 list.
 
 ![](images/fig6.png)
 
-![](images/freq-vs-decade.png)
-
-From the graph, it is observed maximum songs are released between 2010-2020.
+**Distribution of genre
 
 ![](images/genre-dist.png)
 
@@ -46,13 +102,9 @@ From the graph, it is observed maximum songs are released between 2010-2020.
 
 Most of the songs released are of 'Pop', 'Rap' and 'Rock' genre. Half of the songs released are of Genre 'Pop'.
 
-## Exploratory Data Analysis
+**Explaination of some audio features
 
-**Distribution of Genre
-
-![](images/distgen.png)
-
-The distribution of release year is negatively skewed
+![](images/det.png)
 
 **Spotify Features over Time for each decade**
 
@@ -61,6 +113,7 @@ The distribution of release year is negatively skewed
 ![](images/fig2.png)
 
 ![](images/fig3.png)
+
 
 CONCLUSIONS FROM THE PLOTS :
 
@@ -99,6 +152,24 @@ It is showing the distribution of each feature
 ![](images/feattar.png)
 
 It seems that Valance, Tempo, key are not much significant features to predict if the song will be on Billboard or not. While Instrumentalness, Loudness and Energy seems to be significant.
+
+**selected features on the basis on eda
+
+1.  Danceability
+2.  Energy
+3.  Loudness
+4.  Speechiness
+5.  Acousticness
+6.  Instrumentalness
+7.  Liveness
+8.  Valence
+9.  Tempo
+10. Genre
+
+Saved the dataset with above features in a new dataset i.e. final_dataset.csv
+
+## MODEL TRAINING
+
 
 
 
