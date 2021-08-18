@@ -170,28 +170,49 @@ Saved the dataset with above features in a new dataset i.e. final_dataset.csv
 
 ## MODEL TRAINING
 
+Following are some important steps which I did before training the model:
+1. Imported all necessary libraries
+2. Imported the dataset
+3. Dropped the unwanted columns
 
+![](images/import.png)
 
-
-## Models
-Given the unbalanced nature of the dataset, used SMOTE to balance it. Used Standardization technique to scale it down into one scale. So, in addition to aiming for high accuracy, another objective of modeling is to ensure a high AUC (so that TPR is maximized and FPR is minimized). The AUC tells us how well the model is capable of distinguishing between the two classes.
+4. Transformed the skewed distribution into normal one (using stats.boxcox).
+5. Sampled the imbalance data (using SMOTE)
+6. Splitted the data into traning and testing set with test size of 20%.
+7. Used Standard Scaler to standardize the training and testing set.
 
 Here's a list of all the models I tested:
-  1. Decision Tree 
-  2. Improved Decision Tree (with hyperparameter tuning)
-  4. Improved LDA (with hyperparameter tuning)
-  5. Decision Tree with Adaboost (with hyperparameter tuning)
+1. Decision Tree 
+2. Improved Decision Tree (with hyperparameter tuning)
+3. Improved LDA (with hyperparameter tuning)
+4. Decision Tree with Adaboost (with hyperparameter tuning)
+
   
 **Model Summaries:**
 
 | Model   | Accuracy   | AUC   |
 | -----   | :--------: | :---: |
-| Decision Tree | 0.74 | 0.77 |
-| Improved Decision Tree | 0.75 | 0.79 |
-| Improved LDA | 0.65 | 0.70 |
-| Decision Tree with Adaboost | 0.83 | 0.90 |
+| Decision Tree | 0.74 | 0.75 |
+| Improved Decision Tree | 0.75 | 0.75 |
+| Improved LDA | 0.65 | 0.68 |
+| Decision Tree-Adaboost | 0.83 | 0.90 |
 
+ROC Curve for Decison Tree Classifier with Hyperparameter Tuning
 
+![](images/dtht.png)
+
+ROC Curve for Decision Tree-Adaboost Classifier 
+
+![](images/ada.png)
+
+ROC Curve for Decision Tree-Adaboost Classifier with Hyperparameter Tuning
+
+![](images/adaht.png)
+
+ROC Curve for Linear Discriminant Analysis with Hyperparameter Tuning
+
+![](images/ldaht.png)
 
 
 **Model Summary:**
@@ -200,10 +221,16 @@ Here's a list of all the models I tested:
 | :--------: | :---: |
 | 0.83 | 0.90 |
 
-The Decision tree-Adaboost with hyper parameter tuning model gave the highest accuracy score and AUC score.
+The Decision tree-Adaboost with hyper parameter tuning model gave the highest accuracy score and AUC score. Also made pickle file for the model.
 
 #### Deployment:
-With the help of [Flask](https://flask.palletsprojects.com/en/2.0.x/) framework, I have created a web app (link given on the top) which takes audio features as input and predict whether the song wiil hit Billboard or not? Also used HTML and CSS to design the web app. Below are some screenshots:
+With the help of [Flask](https://flask.palletsprojects.com/en/2.0.x/) framework,
+
+![](images/flask.png)
+
+I have created a web app (link given on the top) which takes audio features as input and predict whether the song wiil hit Billboard or not? Also used HTML and CSS to design the web app. 
+
+Below are some screenshots:
 
 ![](images/deploy2.png)
 
